@@ -1,7 +1,11 @@
 // @ts-expect-error
-import {startServer} from "../index.mjs";
-console.log("hello Am index");
+import { startServer } from "../legacy/index.mjs";
 
-startServer();
+
+try {
+    startServer();
+} catch (error) {
+    console.log(`Error occurred while starting http server `, error);
+}
 
 

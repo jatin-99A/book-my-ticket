@@ -12,10 +12,8 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import dotenv from "dotenv";
-import {fun} from "./dist/payment.js"
 dotenv.config();
 
-fun();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -30,7 +28,7 @@ const pool = new pg.Pool({
   port: 5433,
   user: "postgres",
   password: "postgres",
-  database: "sql_class_2_db",
+  database: "book_my_ticket_db",
   max: 20,
   connectionTimeoutMillis: 0,
   idleTimeoutMillis: 0,
@@ -84,7 +82,9 @@ app.put("/:id/:name", async (req, res) => {
     res.send(updateResult);
   } catch (ex) {
     console.log(ex);
-    res.send(500);
+    res.status(500).send("Internal error");
+    await conn.query("ROLLBACK");
+    conn.release();
   }
 });
 
