@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "email_verification_expires" timestamp DEFAULT now() + interval '1 day';

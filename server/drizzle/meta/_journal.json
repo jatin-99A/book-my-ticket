@@ -22,6 +22,27 @@
       "when": 1776175291097,
       "tag": "0002_moaning_bulldozer",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1776252459972,
+      "tag": "0003_marvelous_marten_broadcloak",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1776253618314,
+      "tag": "0004_peaceful_cassandra_nova",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1776259821532,
+      "tag": "0005_peaceful_carlie_cooper",
+      "breakpoints": true
     }
   ]
 }

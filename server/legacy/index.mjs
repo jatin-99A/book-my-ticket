@@ -12,8 +12,8 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import dotenv from "dotenv";
+import { authMiddleware } from "./auth-middleware.mjs";
 dotenv.config();
-
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -35,11 +35,14 @@ const pool = new pg.Pool({
 });
 
 const app = new express();
+
 app.use(cors());
+app.use(authMiddleware);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
+
 //get all seats
 app.get("/seats", async (req, res) => {
   const result = await pool.query("select * from seats"); // equivalent to Seats.find() in mongoose
@@ -87,7 +90,6 @@ app.put("/:id/:name", async (req, res) => {
     conn.release();
   }
 });
-
 
 
 export const startServer = () => {
