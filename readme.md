@@ -17,9 +17,11 @@ A full-stack ticket booking system with authentication, backend APIs, and fronte
 
 ## 📁 Project Structure
 
+```text
 book-my-ticket/
-├── client   (Frontend)
-└── server   (Backend)
+├── client/   # Frontend (React)
+└── server/   # Backend (Node.js / Express)
+```
 
 ---
 
@@ -27,19 +29,25 @@ book-my-ticket/
 
 ### 1. Clone the repository
 
+```bash
 git clone <repo-url>
 cd book-my-ticket
+```
 
 ---
 
 ## 🖥️ Frontend Setup
 
+```bash
 cd client
 npm install
 npm run dev
+```
 
 Runs at:
+```
 http://localhost:5173
+```
 
 ---
 
@@ -47,21 +55,29 @@ http://localhost:5173
 
 ### Start database (Docker)
 
+```bash
 cd server
 docker compose up -d
+```
 
 ### Install dependencies
 
+```bash
 npm install
+```
 
 ### Run migrations (Drizzle)
 
+```bash
 npx drizzle-kit generate
 npx drizzle-kit migrate
+```
 
 ### Start server
 
+```bash
 npm run dev
+```
 
 ---
 
